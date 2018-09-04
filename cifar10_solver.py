@@ -83,10 +83,6 @@ class CIFAR10Solver(object):
         val_loader = self.data.get_val_loader(val_batch_size)
         return self.__test(val_loader)
 
-    def __save(self, save_path):
-        dummy_input = Var
-        onnx.export()
-
     def train(self, epochs, lr_scheduler=None, train_batch_size=128, val_batch_size=128):
         tran_loader = self.data.get_train_loader(train_batch_size)
         steps = len(tran_loader)
@@ -100,9 +96,6 @@ class CIFAR10Solver(object):
             total_loss = 0
 
             self.model.train()
-            # step lr scheduler every epoch
-            if lr_scheduler:
-                lr_scheduler.step()
 
             print('Epoch: %d/%d, lr:%.2e' % (epoch + 1, epochs, self.opt.param_groups[0]['lr']))
             for i, data in enumerate(tran_loader):
@@ -136,6 +129,11 @@ class CIFAR10Solver(object):
             history['val_loss'].append(val_loss)
             history['val_acc'].append(val_acc)
             print(' val_loss:{:.2} val_acc:{:.2%}'.format(val_loss, val_acc))
+            # step lr scheduler every epoch
+            if lr_scheduler:
+                lr_scheduler.step(val_loss)
+
+
         print('end training')
         return history
 

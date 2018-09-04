@@ -23,3 +23,4 @@ environment.
  small-ResNet20 | 91.78%
  small-ResNet32 | 92.82%
  small-ResNet56 | 93.72%
+ vgg13 | 94.10%

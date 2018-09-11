@@ -131,7 +131,10 @@ class CIFAR10Solver(object):
             print(' val_loss:{:.2} val_acc:{:.2%}'.format(val_loss, val_acc))
             # step lr scheduler every epoch
             if lr_scheduler:
-                lr_scheduler.step(val_loss)
+                if isinstance(lr_scheduler, optim.lr_scheduler.ReduceLROnPlateau):
+                    lr_scheduler.step(val_loss, epoch=(epoch+1))
+                else:
+                    lr_scheduler.step(epoch=(epoch+1))
 
 
         print('end training')

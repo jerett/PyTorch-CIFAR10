@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import torch.optim as optim
+import torch.multiprocessing as mp
 import numpy as np
 from data_loader import CIFAR10Data
 
@@ -135,11 +136,9 @@ class CIFAR10Solver(object):
                     lr_scheduler.step(val_loss, epoch=(epoch+1))
                 else:
                     lr_scheduler.step(epoch=(epoch+1))
-
-
         print('end training')
         return history
 
     def test(self, test_batch_size=128):
-        test_loader = self.data.get_val_loader(test_batch_size)
+        test_loader = self.data.get_test_loader(test_batch_size)
         return self.__test(test_loader)

@@ -1,5 +1,5 @@
 # PyTorch for CIFAR10
-This project demonstrates some personal examples with PyTorch on CIFAR10.
+This project demonstrates some personal examples with PyTorch on CIFAR10 dataset.
 
  ---
  
@@ -18,10 +18,12 @@ environment.
 
  Model | Accuracy
  :---: | :---: 
- SVM | 37% | 
- Softmax | 39% |
- small-ResNet20 | 91.78%
- small-ResNet32 | 92.82%
- small-ResNet56 | 93.72%
- vgg13 | 94.10%
- vgg16 | 94.38%
+ [SVM](linear_classifier.ipynb) | 37% | 
+ [Softmax](linear_classifier.ipynb) | 39% |
+ [small-ResNet20](resnet20.ipynb) | 91.78%
+ [small-ResNet32](resnet32.ipynb) | 92.82%
+ [small-ResNet56](resnet56.ipynb) | 93.72%
+ [vgg13](vgg13.ipynb) | 94.10%
+ [vgg16](vgg16.ipynb) | 94.38%
+ [MobileNetV1](mobilenet_v1.ipynb) | 93.11%
+ [MobileNetV2](mobilenet_v2.ipynb) | 93.47%

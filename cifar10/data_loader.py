@@ -31,23 +31,23 @@ class CIFAR10Data(object):
         self.val_dataset = torch.utils.data.Subset(val_dataset, val_idx)
         self.test_dataset = test_dataset
 
-    def get_train_loader(self, train_batch_size=128):
+    def get_train_loader(self, batch_size=128):
         train_loader = torch.utils.data.DataLoader(
-            self.train_dataset, batch_size=train_batch_size,
+            self.train_dataset, batch_size=batch_size,
             num_workers=2, shuffle=True
         )
         return train_loader
 
-    def get_val_loader(self, val_batch_size=128):
+    def get_val_loader(self, batch_size=128):
         val_loader = torch.utils.data.DataLoader(
-            self.val_dataset, batch_size=val_batch_size,
+            self.val_dataset, batch_size=batch_size,
             num_workers=2, shuffle=False
         )
         return val_loader
 
-    def get_test_loader(self, test_batch_size=128):
+    def get_test_loader(self, batch_size=128):
         test_loader = torch.utils.data.DataLoader(
-            self.test_dataset, batch_size=test_batch_size,
+            self.test_dataset, batch_size=batch_size,
             num_workers=2, shuffle=False
         )
         return test_loader

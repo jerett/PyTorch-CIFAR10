@@ -168,12 +168,12 @@ class MobileNetV2(nn.Module):
                       kernel_size=1,
                       bias=False),
             nn.BatchNorm2d(num_features=1280),
-            nn.ReLU6(inplace=True),
+            # nn.ReLU6(inplace=True),
         ))
         self.layers = nn.Sequential(*layers)
         self.avg_pool = nn.AvgPool2d(kernel_size=4)
         self.classifier = nn.Sequential(
-            nn.Dropout(p=0.2),
+            # nn.Dropout(p=0.2),
             nn.Linear(in_features=1280, out_features=num_classes)
         )
 
